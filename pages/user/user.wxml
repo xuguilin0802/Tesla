@@ -1,0 +1,31 @@
+<!--pages/user/user.wxml-->
+<view class='main'>
+  <navigator url=''>
+    <view class='header' bindtap='btn_login'>
+      <image src='{{thumb}}' class='thumb'></image>
+      <text class='nickname'>{{nickname}}</text>
+      <text class='power'>未绑定</text>
+      <!-- <text class='power' wx:else">已绑定</text> -->
+    </view>
+  </navigator>
+  <view class='list'>
+    <navigator url='/pages/user/school/school' class='app'>
+      <view class='app_name'>
+        <text class='iconfont icon-school'></text>
+        <text class='app_value'>智慧山师</text>
+      </view>
+    </navigator>
+    <navigator url='/pages/user/call/call' class='feedback'>
+      <view class='feed_name'>
+        <text class='iconfont icon-feedback3f'></text>
+        <text class='feed_value'>反馈</text>
+      </view>
+    </navigator>
+    <navigator url='' class='about'>
+      <view class='about_name'>
+        <text class='iconfont icon-about'></text>
+        <text class='about_value'>关于</text>
+      </view>
+    </navigator>
+  </view>
+</view>

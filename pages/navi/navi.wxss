@@ -1,0 +1,31 @@
+/* pages/navi/navi.wxss */
+
+.div {
+ position: fixed;
+ left: 37%;
+ top: 78.5%;
+}
+.order {
+  /* position: fixed; */
+  height: 200rpx;
+  width: 200rpx;
+}
+.div1{
+ position: fixed;
+  left: 10%;
+  bottom: 10%
+}
+.center{
+  height: 75rpx;
+  width: 75rpx;  
+}
+.div2{
+position: fixed;
+  right: 10%;
+   bottom: 10%
+}
+.back{
+  height: 75rpx;
+  width: 75rpx;
+ 
+}
