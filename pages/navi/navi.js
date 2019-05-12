@@ -183,30 +183,6 @@ var markers = [{
 
   },
 ];
-
-const genBusData = ({busList, busLocation}) => {
-  const busData = [];
-  Object.keys(busList).forEach(imei => {
-    const data = busList[imei];
-    const location = busLocation[imei];
-    if (location) {
-      busData.push({
-        id: +imei,
-        latitude: busLocation[imei].lat,
-        longitude: busLocation[imei].lng,
-        callout: {
-          content: `${data.bus_lineName}\n${data.bus_departureSite}\n${data.bus_arriveSite}`,
-          padding: 10,
-          display: 'BYCLICK',
-          textAlign: 'center',
-          borderRadius: 5
-        }
-      });
-    }
-  });
-  return busData;
-};
-
 Page({
   data: {
     username: '',
@@ -215,9 +191,7 @@ Page({
     longitude: 116.8323898315,
     markers: markers,
     mapWidth: '',
-    mapHeight: '',
-    busList: null,
-    busLocation: null
+    mapHeight: ''
   },
   toaddress: function(e) {
     console.log(e)
@@ -233,24 +207,6 @@ Page({
     console.log("time2", time)
     this.mapCtx = wx.createMapContext('myMap')
     var that = this;
-    wx.request({
-      url: 'https://bus.mysdnu.cn/bus',
-      success: ({data: busList}) => {
-        that.setData({busList});
-        if (that.data.busLocation) {
-          that.setData({markers: genBusData(that.data)});
-        }
-      }
-    });
-    wx.request({
-      url: 'https://bus.mysdnu.cn/bus/location',
-      success: ({data: busLocation}) => {
-        that.setData({busLocation});
-        if (that.data.busList) {
-          that.setData({markers: genBusData(that.data)});
-        }
-      }
-    });
     wx.request({
       url: 'http://bus.mysdnu.cn/bus/mqtt',
       method: 'GET',
